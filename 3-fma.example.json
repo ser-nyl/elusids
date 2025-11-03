@@ -1,0 +1,304 @@
+{
+  "drug_name": "3-FMA",
+  "search_url": "https://pubchem.ncbi.nlm.nih.gov/compound/58216164",
+  "chemical_class": "Fluorinated amphetamine",
+  "psychoactive_class": "Stimulant, Empathogen",
+  "dosages": {
+    "routes_of_administration": [
+      {
+        "route": "oral",
+        "units": "mg",
+        "notes": "Ranges are aggregated from user reports; no clinical dosing exists. Potency varies between vendors/batches. Start low, use an accurate scale, and avoid frequent redosing.",
+        "dose_ranges": {
+          "threshold": "5 mg",
+          "light": "10-15 mg",
+          "common": "15-25 mg",
+          "strong": "25-35 mg",
+          "heavy": "35+ mg"
+        }
+      },
+      {
+        "route": "insufflated",
+        "units": "mg",
+        "notes": "Derived from scattered user reports; nasal ROA increases onset speed and side‑effects (burning, vasoconstriction). Potency uncertainty is high; start at the low end or avoid nasal use.",
+        "dose_ranges": {
+          "threshold": "3-5 mg",
+          "light": "5-10 mg",
+          "common": "10-20 mg",
+          "strong": "20-30 mg",
+          "heavy": "30+ mg"
+        }
+      }
+    ]
+  },
+  "duration": {
+    "total_duration": "4-8 hours",
+    "onset": "20-60 minutes",
+    "peak": "1-3 hours",
+    "offset": "1-3 hours",
+    "after_effects": "2-6 hours"
+  },
+  "duration_curves": [
+    {
+      "method": "oral",
+      "duration_curve": {
+        "reference": "Aggregated from user reports on BlueLight and Drugs‑Forum; no formal PK data.",
+        "units": "hours",
+        "total_duration": {
+          "min": 4,
+          "max": 8,
+          "iso": [
+            "PT4H",
+            "PT8H"
+          ],
+          "note": "Large interindividual variability reported."
+        },
+        "onset": {
+          "start": 0.33,
+          "end": 1,
+          "iso_start": [
+            "PT20M"
+          ],
+          "iso_end": [
+            "PT60M"
+          ]
+        },
+        "peak": {
+          "start": 1,
+          "end": 3,
+          "iso_start": [
+            "PT1H"
+          ],
+          "iso_end": [
+            "PT3H"
+          ]
+        },
+        "offset": {
+          "start": 1,
+          "end": 3,
+          "iso_start": [
+            "PT1H"
+          ],
+          "iso_end": [
+            "PT3H"
+          ]
+        },
+        "after_effects": {
+          "start": 2,
+          "end": 6,
+          "iso_start": [
+            "PT2H"
+          ],
+          "iso_end": [
+            "PT6H"
+          ]
+        }
+      }
+    },
+    {
+      "method": "insufflated",
+      "duration_curve": {
+        "reference": "Aggregated from user reports; limited and inconsistent.",
+        "units": "hours",
+        "total_duration": {
+          "min": 3,
+          "max": 6,
+          "iso": [
+            "PT3H",
+            "PT6H"
+          ],
+          "note": "Shorter and spikier than oral."
+        },
+        "onset": {
+          "start": 0.08,
+          "end": 0.25,
+          "iso_start": [
+            "PT5M"
+          ],
+          "iso_end": [
+            "PT15M"
+          ]
+        },
+        "peak": {
+          "start": 1,
+          "end": 2,
+          "iso_start": [
+            "PT1H"
+          ],
+          "iso_end": [
+            "PT2H"
+          ]
+        },
+        "offset": {
+          "start": 1,
+          "end": 3,
+          "iso_start": [
+            "PT1H"
+          ],
+          "iso_end": [
+            "PT3H"
+          ]
+        },
+        "after_effects": {
+          "start": 2,
+          "end": 6,
+          "iso_start": [
+            "PT2H"
+          ],
+          "iso_end": [
+            "PT6H"
+          ]
+        }
+      }
+    }
+  ],
+  "addiction_potential": "Moderate to high: stimulant‑type reinforcement and compulsive redosing have been described anecdotally.",
+  "interactions": {
+    "dangerous": [
+      "MAOIs"
+    ],
+    "unsafe": [
+      "Other stimulants",
+      "MDMA",
+      "Cocaine",
+      "Tramadol",
+      "DXM"
+    ],
+    "caution": [
+      "Alcohol",
+      "GHB/GBL",
+      "Opioids",
+      "Benzodiazepines",
+      "SSRIs",
+      "SNRIs",
+      "Ketamine",
+      "5‑MeO tryptamines"
+    ]
+  },
+  "notes": "TripSit does not host a 3‑FMA factsheet at this time; information is pieced together from general stimulant HR guidance, TripSit’s combo chart, and 3‑FMA user threads. Combining amphetamines with MAOIs can precipitate hypertensive crises and is widely regarded as dangerous; avoid entirely. Mixing with MDMA, cocaine, or other stimulants increases cardiovascular strain and neurotoxic risk; avoid such combinations. DXM and tramadol combinations add seizure and serotonin‑toxicity risk; avoid. Alcohol and GHB/GBL can mask intoxication and increase dehydration/respiratory risks as stimulant effects wane—set firm limits or avoid mixing. Expect typical stimulant adverse effects (tachycardia, hypertension, appetite suppression, insomnia, anxiety); those with cardiovascular disease or on interacting meds should abstain. Bruxism/jaw clenching and nystagmus are commonly reported with stimulants; gum/mouthguard and magnesium may help, but dose control is primary. Compulsive redosing is a known stimulant risk; pre‑measure single doses and secure the remainder. If using, prioritise sleep, nutrition, and electrolyte hydration during and after; plan a stimulant‑free recovery day to mitigate comedown mood dip. Never inject research chemicals; sterility, solubility, and excipient unknowns make parenteral routes especially risky. Use drug‑checking services where available; identity/purity of ‘3‑FMA’ has historically varied in the unregulated market. Long‑term neurotoxicity data are absent; adopt conservative frequency (e.g., weeks between sessions) and avoid multi‑day runs.",
+  "subjective_effects": [
+    "Increased energy",
+    "Motivation enhancement",
+    "Enhanced focus",
+    "Sociability",
+    "Euphoria",
+    "Empathy",
+    "Talkativeness/pressured speech",
+    "Appetite suppression",
+    "Anxiety",
+    "Jaw tension/bruxism",
+    "Nystagmus/vibrating vision",
+    "Urinary retention",
+    "Sweating/temperature dysregulation",
+    "Compulsive redosing",
+    "Insomnia",
+    "After‑glow fatigue/low mood"
+  ],
+  "tolerance": {
+    "model": {
+      "type": "unknown",
+      "build_rate": 0,
+      "decay_rate": 0,
+      "half_life": 0
+    },
+    "timeline": [
+      {
+        "hours": 0,
+        "tolerance_percentage": 0,
+        "confidence": 40
+      },
+      {
+        "hours": 24,
+        "tolerance_percentage": 30,
+        "confidence": 30
+      },
+      {
+        "hours": 72,
+        "tolerance_percentage": 50,
+        "confidence": 25
+      },
+      {
+        "hours": 168,
+        "tolerance_percentage": 25,
+        "confidence": 25
+      },
+      {
+        "hours": 336,
+        "tolerance_percentage": 0,
+        "confidence": 20
+      }
+    ],
+    "baselines": {
+      "full_tolerance": {
+        "hours": 48,
+        "confidence": 20
+      },
+      "half_tolerance": {
+        "hours": 168,
+        "confidence": 25
+      },
+      "baseline_tolerance": {
+        "hours": 336,
+        "confidence": 25
+      }
+    },
+    "cross_tolerances": [
+      {
+        "substance": "Amphetamine/methamphetamine",
+        "ratio": 0.6,
+        "confidence": 30
+      },
+      {
+        "substance": "Other stimulants (e.g., cathinones, MPH analogues)",
+        "ratio": 0.4,
+        "confidence": 20
+      }
+    ],
+    "notes": "Pattern inferred from community reports of stimulant use: tolerance rises rapidly with successive redoses/sessions and partially resets over 3–7 days, approaching baseline by ~2 weeks if abstinent. Exact kinetics are unknown; figures are illustrative and low‑confidence.",
+    "data_quality": "anecdotal"
+  },
+  "half_life": "Unknown",
+  "citations": [
+    {
+      "name": "PubChem compound entry (3‑FMA)",
+      "reference": "https://pubchem.ncbi.nlm.nih.gov/compound/58216164"
+    },
+    {
+      "name": "TripSit Drug Combinations (Amphetamines with other classes)",
+      "reference": "https://wiki.tripsit.me/wiki/Drug_combinations"
+    },
+    {
+      "name": "BlueLight 3‑FMA thread (user dosing/duration anecdotes)",
+      "reference": "https://www.bluelight.org/community/threads/3-fma-3-fluoromethamphetamine.616472/"
+    },
+    {
+      "name": "Drugs‑Forum 3‑FMA Experiences (route/duration anecdotes)",
+      "reference": "https://drugs-forum.com/threads/3-fluoromethamphetamine-3-fma-experiences.144208/"
+    },
+    {
+      "name": "DrugWise – Amphetamines (general stimulant HR)",
+      "reference": "https://www.drugwise.org.uk/amphetamines/"
+    },
+    {
+      "name": "Effect Index – Compulsive redosing (stimulants)",
+      "reference": "https://www.effectindex.com/effects/compulsive-redosing"
+    },
+    {
+      "name": "Effect Index – Teeth grinding (bruxism; stimulant‑associated)",
+      "reference": "https://www.effectindex.com/effects/teeth-grinding"
+    },
+    {
+      "name": "Drug Checking Community – Service overview (use drug‑checking)",
+      "reference": "https://drugchecking.community/wp-content/uploads/dlm_uploads/2025/02/Torontos-Drug-Checking-Service-report_Jan25-Feb7-2025.pdf"
+    }
+  ],
+  "categories": [
+    "stimulant",
+    "research-chemical",
+    "empathogen",
+    "habit-forming",
+    "anorectic",
+    "cariotoxic",
+    "toxic|unspecified"
+  ]
+}
