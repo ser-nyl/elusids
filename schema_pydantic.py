@@ -238,6 +238,9 @@ class DrugInfo(BaseModel):
     drug_name: str = Field(
         description="Primary name of the substance as commonly recognized across sources."
     )
+    alternative_names: List[str] = Field(
+        description="A comprehensive list of alternative names for the substance, including street names, colloquialisms, chemical nomenclature variants, abbreviations, and regional terminology. This aggregation synthesizes nomenclature from diverse sources including user communities, research literature, clinical contexts, and underground markets. Includes systematic IUPAC names, common abbreviations (e.g., MDMA, LSD), brand names, research chemical designations (e.g., '5-MeO-DMT'), and vernacular terms. Sources may include trip reports, forum discussions, published literature, and drug checking services."
+    )
     search_url: Annotated[
         HttpUrl,
         # Negative lookahead to forbid PsychonautWiki
