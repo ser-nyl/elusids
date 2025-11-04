@@ -1,648 +1,658 @@
-{
-  "name": "drug_info",
-  "strict": true,
-  "schema": {
-    "type": "object",
-    "properties": {
-      "drug_name": {
-        "type": "string",
-        "description": "The primary name of the substance as commonly recognized across various sources, including scientific literature, user reports, and drug databases."
-      },
-      "search_url": {
-        "type": "string",
-        "description": "URL linking to a comprehensive repository of detailed information about the substance, synthesized from diverse sources including research articles, clinical studies, and user experiences. Must NOT be PsychonautWiki.org URL."
-      },
-      "chemical_class": {
-        "type": "string",
-        "description": "The chemical class of the substance, identified based on structural and functional similarities with other compounds, as aggregated from chemical databases and research studies."
-      },
-      "psychoactive_class": {
-        "type": "string",
-        "description": "The psychoactive class of the substance, reflecting its effects on the central nervous system, derived from user reports, pharmacological studies, and expert consensus."
-      },
-      "dosages": {
-        "$ref": "#/$defs/dosages"
-      },
-      "duration": {
-        "$ref": "#/$defs/duration"
-      },
-      "duration_curves": {
-        "type": "array",
-        "description": "ROA-specific duration curve data for plotting drug effect timelines",
-        "items": {
-          "$ref": "#/$defs/duration_curve_entry"
-        }
-      },
-      "addiction_potential": {
-        "type": "string",
-        "description": "A description of the substance's addiction potential, synthesized from epidemiological studies, case reports, and user accounts, reflecting a consensus on the risk of dependency."
-      },
-      "interactions": {
-        "$ref": "#/$defs/interactions"
-      },
-      "notes": {
-        "type": "string",
-        "description": "Additional notes or warnings about the substance, synthesizing a wide range of data points from user experiences, clinical observations, and expert guidelines. Must have at least 3 sentences (minimum), but ideally should be 5-20 sentences long. Every sentence should carry a concisely stated pertinent fact about the substance that is vital for harm reduction in recreational use.\n\nBad Example: \"3,3-DBCP is a tentative stimulant. Little is known about the substance,\"\n\nGood Example: \"No human pharmacokinetic data; cyclobutane ring may undergo oxidative ring-opening producing unknown metabolites. Animal hyper-locomotion was only partially blocked by DA-antagonist pimozide, suggesting mixed monoamine release rather than pure reuptake inhibition.\"\n\nBad Example: \"3-MMC is a stimulant cathinone that produces strong euphoria and stimulation.\"\n\nGood Example: \"Compared to its more popular cousin 4-MMC, 3-MMC is a less-characterized stimulant with a faster onset of action and a shorter duration, necessitating more frequent dosing. Preliminary studies indicate subtle differences in receptor binding that could alter its side-effect profile, underlining the need for cautious titration and thorough risk assessment.\""
-      },
-      "subjective_effects": {
-        "type": "array",
-        "description": "List of subjective effects commonly associated with the substance, aggregated from user reports, clinical studies, and psychopharmacological research, representing typical experiences and outliers.",
-        "items": {
-          "type": "string"
-        }
-      },
-      "tolerance": {
+NEW_DRUG_SCHEMA = {
+      "type": "json_schema",
+      "name": "drug_info",
+      "strict": True,
+      "schema": {
         "type": "object",
         "properties": {
-          "model": {
+          "drug_name": {
+            "type": "string",
+            "description": "The primary name of the substance as commonly recognized across various sources, including scientific literature, user reports, and drug databases."
+          },
+            "alternative_names": {
+                
+                "type": "array",
+                "description": "A comprehensive list of alternative names for the substance, including street names, colloquialisms, chemical nomenclature variants, abbreviations, and regional terminology. This aggregation synthesizes nomenclature from diverse sources including user communities, research literature, clinical contexts, and underground markets. Includes systematic IUPAC names, common abbreviations (e.g., MDMA, LSD), brand names, research chemical designations (e.g., '5-MeO-DMT'), and vernacular terms. Sources may include trip reports, forum discussions, published literature, and drug checking services.",
+                "items": {
+                "type": "string"
+                }
+            },
+          "search_url": {
+            "type": "string",
+            "description": "URL linking to a comprehensive repository of detailed information about the substance, synthesized from diverse sources including research articles, clinical studies, and user experiences. Must NOT be PsychonautWiki.org URL."
+          },
+          "chemical_class": {
+            "type": "string",
+            "description": "The chemical class of the substance, identified based on structural and functional similarities with other compounds, as aggregated from chemical databases and research studies."
+          },
+          "psychoactive_class": {
+            "type": "string",
+            "description": "The psychoactive class of the substance, reflecting its effects on the central nervous system, derived from user reports, pharmacological studies, and expert consensus."
+          },
+          "dosages": {
+            "$ref": "#/$defs/dosages"
+          },
+          "duration": {
+            "$ref": "#/$defs/duration"
+          },
+          "duration_curves": {
+            "type": "array",
+            "description": "ROA-specific duration curve data for plotting drug effect timelines",
+            "items": {
+              "$ref": "#/$defs/duration_curve_entry"
+            }
+          },
+          "addiction_potential": {
+            "type": "string",
+            "description": "A description of the substance's addiction potential, synthesized from epidemiological studies, case reports, and user accounts, reflecting a consensus on the risk of dependency."
+          },
+          "interactions": {
+            "$ref": "#/$defs/interactions"
+          },
+          "notes": {
+            "type": "string",
+            "description": "Additional notes or warnings about the substance, synthesizing a wide range of data points from user experiences, clinical observations, and expert guidelines. Must have at least 3 sentences (minimum), but ideally should be 5-20 sentences long. Every sentence should carry a concisely stated pertinent fact about the substance that is vital for harm reduction in recreational use.\n\nBad Example: \"3,3-DBCP is a tentative stimulant. Little is known about the substance,\"\n\nGood Example: \"No human pharmacokinetic data; cyclobutane ring may undergo oxidative ring-opening producing unknown metabolites. Animal hyper-locomotion was only partially blocked by DA-antagonist pimozide, suggesting mixed monoamine release rather than pure reuptake inhibition.\"\n\nBad Example: \"3-MMC is a stimulant cathinone that produces strong euphoria and stimulation.\"\n\nGood Example: \"Compared to its more popular cousin 4-MMC, 3-MMC is a less-characterized stimulant with a faster onset of action and a shorter duration, necessitating more frequent dosing. Preliminary studies indicate subtle differences in receptor binding that could alter its side-effect profile, underlining the need for cautious titration and thorough risk assessment.\""
+          },
+          "subjective_effects": {
+            "type": "array",
+            "description": "List of subjective effects commonly associated with the substance, aggregated from user reports, clinical studies, and psychopharmacological research, representing typical experiences and outliers.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tolerance": {
             "type": "object",
-            "description": "Mathematical model for tolerance development and decay",
             "properties": {
-              "type": {
+              "model": {
+                "type": "object",
+                "description": "Mathematical model for tolerance development and decay",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "exponential",
+                      "linear",
+                      "custom",
+                      "unknown"
+                    ],
+                    "description": "The mathematical model used to describe tolerance changes"
+                  },
+                  "build_rate": {
+                    "type": "number",
+                    "description": "Rate at which tolerance develops (percentage per hour)",
+                    "minimum": 0
+                  },
+                  "decay_rate": {
+                    "type": "number",
+                    "description": "Rate at which tolerance decays (percentage per hour)",
+                    "minimum": 0
+                  },
+                  "half_life": {
+                    "type": "number",
+                    "description": "Half-life of tolerance decay in hours",
+                    "minimum": 0
+                  }
+                },
+                "required": [
+                  "type",
+                  "build_rate",
+                  "decay_rate",
+                  "half_life"
+                ],
+                "additionalProperties": False
+              },
+              "timeline": {
+                "type": "array",
+                "description": "Discrete points on the tolerance curve",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "hours": {
+                      "type": "number",
+                      "description": "Time in hours since last use",
+                      "minimum": 0
+                    },
+                    "tolerance_percentage": {
+                      "type": "number",
+                      "description": "Percentage of tolerance remaining (0-100)",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "confidence": {
+                      "type": "number",
+                      "description": "Confidence level in this data point (0-100)",
+                      "minimum": 0,
+                      "maximum": 100
+                    }
+                  },
+                  "required": [
+                    "hours",
+                    "confidence",
+                    "tolerance_percentage"
+                  ],
+                  "additionalProperties": False
+                }
+              },
+              "baselines": {
+                "type": "object",
+                "description": "Key tolerance timeline markers",
+                "properties": {
+                  "full_tolerance": {
+                    "type": "object",
+                    "properties": {
+                      "hours": {
+                        "type": "number",
+                        "description": "Hours until full tolerance is developed"
+                      },
+                      "confidence": {
+                        "type": "number",
+                        "description": "Confidence in this estimate (0-100)",
+                        "minimum": 0,
+                        "maximum": 100
+                      }
+                    },
+                    "required": [
+                      "hours",
+                      "confidence"
+                    ],
+                    "additionalProperties": False
+                  },
+                  "half_tolerance": {
+                    "type": "object",
+                    "properties": {
+                      "hours": {
+                        "type": "number",
+                        "description": "Hours until tolerance is reduced by half"
+                      },
+                      "confidence": {
+                        "type": "number",
+                        "description": "Confidence in this estimate (0-100)",
+                        "minimum": 0,
+                        "maximum": 100
+                      }
+                    },
+                    "required": [
+                      "hours",
+                      "confidence"
+                    ],
+                    "additionalProperties": False
+                  },
+                  "baseline_tolerance": {
+                    "type": "object",
+                    "properties": {
+                      "hours": {
+                        "type": "number",
+                        "description": "Hours until tolerance returns to baseline"
+                      },
+                      "confidence": {
+                        "type": "number",
+                        "description": "Confidence in this estimate (0-100)",
+                        "minimum": 0,
+                        "maximum": 100
+                      }
+                    },
+                    "required": [
+                      "hours",
+                      "confidence"
+                    ],
+                    "additionalProperties": False
+                  }
+                },
+                "required": [
+                  "full_tolerance",
+                  "half_tolerance",
+                  "baseline_tolerance"
+                ],
+                "additionalProperties": False
+              },
+              "cross_tolerances": {
+                "type": "array",
+                "description": "Substances with cross-tolerance",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "substance": {
+                      "type": "string",
+                      "description": "Name of substance with cross-tolerance"
+                    },
+                    "ratio": {
+                      "type": "number",
+                      "description": "Approximate ratio of cross-tolerance (0-1)",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "confidence": {
+                      "type": "number",
+                      "description": "Confidence in this estimate (0-100)",
+                      "minimum": 0,
+                      "maximum": 100
+                    }
+                  },
+                  "required": [
+                    "substance",
+                    "ratio",
+                    "confidence"
+                  ],
+                  "additionalProperties": False
+                }
+              },
+              "notes": {
+                "type": "string",
+                "description": "Additional notes about tolerance patterns or data quality"
+              },
+              "data_quality": {
                 "type": "string",
                 "enum": [
-                  "exponential",
-                  "linear",
-                  "custom",
-                  "unknown"
+                  "high",
+                  "medium",
+                  "low",
+                  "anecdotal",
+                  "theoretical"
                 ],
-                "description": "The mathematical model used to describe tolerance changes"
-              },
-              "build_rate": {
-                "type": "number",
-                "description": "Rate at which tolerance develops (percentage per hour)",
-                "minimum": 0
-              },
-              "decay_rate": {
-                "type": "number",
-                "description": "Rate at which tolerance decays (percentage per hour)",
-                "minimum": 0
-              },
-              "half_life": {
-                "type": "number",
-                "description": "Half-life of tolerance decay in hours",
-                "minimum": 0
+                "description": "Overall quality assessment of tolerance data"
               }
             },
             "required": [
-              "type",
-              "build_rate",
-              "decay_rate",
-              "half_life"
+              "model",
+              "cross_tolerances",
+              "data_quality",
+              "timeline",
+              "notes",
+              "baselines"
             ],
-            "additionalProperties": false
+            "additionalProperties": False
           },
-          "timeline": {
+          "half_life": {
+            "type": "string",
+            "description": "Half-life of the substance, reflecting the average time for the concentration of the substance to decrease by half in the body, as reported in pharmacokinetic studies."
+          },
+          "citations": {
             "type": "array",
-            "description": "Discrete points on the tolerance curve",
+            "description": "List of citations supporting the information provided, including names and references, aggregated from scientific literature, user reports, and other reputable sources.",
             "items": {
-              "type": "object",
-              "properties": {
-                "hours": {
-                  "type": "number",
-                  "description": "Time in hours since last use",
-                  "minimum": 0
-                },
-                "tolerance_percentage": {
-                  "type": "number",
-                  "description": "Percentage of tolerance remaining (0-100)",
-                  "minimum": 0,
-                  "maximum": 100
-                },
-                "confidence": {
-                  "type": "number",
-                  "description": "Confidence level in this data point (0-100)",
-                  "minimum": 0,
-                  "maximum": 100
-                }
-              },
-              "required": [
-                "hours",
-                "confidence",
-                "tolerance_percentage"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/citation"
             }
           },
-          "baselines": {
+          "categories": {
+            "type": "array",
+            "description": "List of categories the drug belongs to.",
+            "items": {
+              "$ref": "#/$defs/category_enum"
+            }
+          }
+        },
+        "required": [
+          "drug_name",
+          "search_url",
+          "chemical_class",
+          "psychoactive_class",
+          "dosages",
+          "duration",
+          "addiction_potential",
+          "interactions",
+          "notes",
+          "subjective_effects",
+          "tolerance",
+          "half_life",
+          "citations",
+          "categories",
+          "duration_curves",
+          "alternative_names"
+        ],
+        "additionalProperties": False,
+        "$defs": {
+          "duration_curve_entry": {
             "type": "object",
-            "description": "Key tolerance timeline markers",
+            "properties": {
+              "method": {
+                "type": "string",
+                "description": "Route of administration (e.g., oral, IV, insufflated, smoked)"
+              },
+              "duration_curve": {
+                "$ref": "#/$defs/duration_curve_data"
+              }
+            },
+            "required": [
+              "method",
+              "duration_curve"
+            ],
+            "additionalProperties": False
+          },
+          "duration_curve_data": {
+            "type": "object",
+            "properties": {
+              "reference": {
+                "type": "string",
+                "description": "Citation or reference for the duration data"
+              },
+              "units": {
+                "type": "string",
+                "description": "Time units used (e.g., hours, minutes)",
+                "enum": [
+                  "hours",
+                  "minutes",
+                  "days"
+                ]
+              },
+              "total_duration": {
+                "$ref": "#/$defs/duration_range"
+              },
+              "onset": {
+                "$ref": "#/$defs/duration_phase"
+              },
+              "peak": {
+                "$ref": "#/$defs/duration_phase"
+              },
+              "offset": {
+                "$ref": "#/$defs/duration_phase"
+              },
+              "after_effects": {
+                "$ref": "#/$defs/duration_phase"
+              }
+            },
+            "required": [
+              "reference",
+              "units",
+              "total_duration",
+              "onset",
+              "peak",
+              "offset",
+              "after_effects"
+            ],
+            "additionalProperties": False
+          },
+          "duration_range": {
+            "type": "object",
+            "properties": {
+              "min": {
+                "type": "number",
+                "description": "Minimum duration value"
+              },
+              "max": {
+                "type": "number",
+                "description": "Maximum duration value"
+              },
+              "iso": {
+                "type": "array",
+                "description": "ISO 8601 duration format representations",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "note": {
+                "type": "string",
+                "description": "Additional notes about the duration"
+              }
+            },
+            "required": [
+              "min",
+              "max",
+              "iso",
+              "note"
+            ],
+            "additionalProperties": False
+          },
+          "duration_phase": {
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "number",
+                "description": "Start time of this phase"
+              },
+              "end": {
+                "type": "number",
+                "description": "End time of this phase"
+              },
+              "iso_start": {
+                "type": "array",
+                "description": "ISO 8601 duration format for start time",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "iso_end": {
+                "type": "array",
+                "description": "ISO 8601 duration format for end time",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "start",
+              "end",
+              "iso_start",
+              "iso_end"
+            ],
+            "additionalProperties": False
+          },
+          "dosages": {
+            "type": "object",
+            "properties": {
+              "routes_of_administration": {
+                "type": "array",
+                "description": "Dosages information for different routes of administration.",
+                "items": {
+                  "$ref": "#/$defs/route_of_administration"
+                }
+              }
+            },
+            "required": [
+              "routes_of_administration"
+            ],
+            "additionalProperties": False
+          },
+          "route_of_administration": {
+            "type": "object",
+            "properties": {
+              "route": {
+                "type": "string",
+                "description": "The route of administration. SINGLE WORD OR ABBREVIATION ONLY (e.g., oral, smoked, IV, insufflated)."
+              },
+              "units": {
+                "type": "string",
+                "description": "Units of measurement (e.g., mg, µg, ml)."
+              },
+              "notes": {
+                "type": "string",
+                "description": "Commentary on the provenance of the information, including any relevant details about the source or context. Explicit mentions of the source are not required, but the information should be verifiable. If the information is mostly derived from user reports, it should **ALWAYS** be noted as such."
+              },
+              "dose_ranges": {
+                "$ref": "#/$defs/dose_ranges"
+              }
+            },
+            "required": [
+              "route",
+              "units",
+              "dose_ranges",
+              "notes"
+            ],
+            "additionalProperties": False
+          },
+          "dose_ranges": {
+            "type": "object",
+            "properties": {
+              "threshold": {
+                "type": "string",
+                "description": "Threshold dose."
+              },
+              "light": {
+                "type": "string",
+                "description": "Light dose."
+              },
+              "common": {
+                "type": "string",
+                "description": "Common dose."
+              },
+              "strong": {
+                "type": "string",
+                "description": "Strong dose."
+              },
+              "heavy": {
+                "type": "string",
+                "description": "Heavy dose."
+              }
+            },
+            "required": [
+              "threshold",
+              "light",
+              "common",
+              "strong",
+              "heavy"
+            ],
+            "additionalProperties": False
+          },
+          "duration": {
+            "type": "object",
+            "properties": {
+              "total_duration": {
+                "type": "string",
+                "description": "Total duration of effects."
+              },
+              "onset": {
+                "type": "string",
+                "description": "Onset time of effects."
+              },
+              "peak": {
+                "type": "string",
+                "description": "Peak time of effects."
+              },
+              "offset": {
+                "type": "string",
+                "description": "Offset time of effects."
+              },
+              "after_effects": {
+                "type": "string",
+                "description": "Duration of after-effects."
+              }
+            },
+            "required": [
+              "total_duration",
+              "onset",
+              "peak",
+              "offset",
+              "after_effects"
+            ],
+            "additionalProperties": False
+          },
+          "interactions": {
+            "type": "object",
+            "properties": {
+              "dangerous": {
+                "type": "array",
+                "description": "Dangerous drug interactions.",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "unsafe": {
+                "type": "array",
+                "description": "Unsafe drug interactions.",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "caution": {
+                "type": "array",
+                "description": "Interactions that require caution.",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "dangerous",
+              "unsafe",
+              "caution"
+            ],
+            "additionalProperties": False
+          },
+          "tolerance": {
+            "type": "object",
             "properties": {
               "full_tolerance": {
-                "type": "object",
-                "properties": {
-                  "hours": {
-                    "type": "number",
-                    "description": "Hours until full tolerance is developed"
-                  },
-                  "confidence": {
-                    "type": "number",
-                    "description": "Confidence in this estimate (0-100)",
-                    "minimum": 0,
-                    "maximum": 100
-                  }
-                },
-                "required": [
-                  "hours",
-                  "confidence"
-                ],
-                "additionalProperties": false
+                "type": "string",
+                "description": "Time to full tolerance."
               },
               "half_tolerance": {
-                "type": "object",
-                "properties": {
-                  "hours": {
-                    "type": "number",
-                    "description": "Hours until tolerance is reduced by half"
-                  },
-                  "confidence": {
-                    "type": "number",
-                    "description": "Confidence in this estimate (0-100)",
-                    "minimum": 0,
-                    "maximum": 100
-                  }
-                },
-                "required": [
-                  "hours",
-                  "confidence"
-                ],
-                "additionalProperties": false
+                "type": "string",
+                "description": "Time to half tolerance."
               },
-              "baseline_tolerance": {
-                "type": "object",
-                "properties": {
-                  "hours": {
-                    "type": "number",
-                    "description": "Hours until tolerance returns to baseline"
-                  },
-                  "confidence": {
-                    "type": "number",
-                    "description": "Confidence in this estimate (0-100)",
-                    "minimum": 0,
-                    "maximum": 100
-                  }
-                },
-                "required": [
-                  "hours",
-                  "confidence"
-                ],
-                "additionalProperties": false
+              "zero_tolerance": {
+                "type": "string",
+                "description": "Time to zero tolerance."
+              },
+              "cross_tolerances": {
+                "type": "array",
+                "description": "Substances with cross-tolerance.",
+                "items": {
+                  "type": "string"
+                }
               }
             },
             "required": [
               "full_tolerance",
               "half_tolerance",
-              "baseline_tolerance"
+              "zero_tolerance",
+              "cross_tolerances"
             ],
-            "additionalProperties": false
+            "additionalProperties": False
           },
-          "cross_tolerances": {
-            "type": "array",
-            "description": "Substances with cross-tolerance",
-            "items": {
-              "type": "object",
-              "properties": {
-                "substance": {
-                  "type": "string",
-                  "description": "Name of substance with cross-tolerance"
-                },
-                "ratio": {
-                  "type": "number",
-                  "description": "Approximate ratio of cross-tolerance (0-1)",
-                  "minimum": 0,
-                  "maximum": 1
-                },
-                "confidence": {
-                  "type": "number",
-                  "description": "Confidence in this estimate (0-100)",
-                  "minimum": 0,
-                  "maximum": 100
-                }
+          "citation": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "The name or title of the citation."
               },
-              "required": [
-                "substance",
-                "ratio",
-                "confidence"
-              ],
-              "additionalProperties": false
-            }
-          },
-          "notes": {
-            "type": "string",
-            "description": "Additional notes about tolerance patterns or data quality"
-          },
-          "data_quality": {
-            "type": "string",
-            "enum": [
-              "high",
-              "medium",
-              "low",
-              "anecdotal",
-              "theoretical"
+              "reference": {
+                "type": "string",
+                "description": "The URL or other reference of the citation."
+              }
+            },
+            "required": [
+              "name",
+              "reference"
             ],
-            "description": "Overall quality assessment of tolerance data"
-          }
-        },
-        "required": [
-          "model",
-          "cross_tolerances",
-          "data_quality",
-          "timeline",
-          "notes",
-          "baselines"
-        ],
-        "additionalProperties": false
-      },
-      "half_life": {
-        "type": "string",
-        "description": "Half-life of the substance, reflecting the average time for the concentration of the substance to decrease by half in the body, as reported in pharmacokinetic studies."
-      },
-      "citations": {
-        "type": "array",
-        "description": "List of citations supporting the information provided, including names and references, aggregated from scientific literature, user reports, and other reputable sources.",
-        "items": {
-          "$ref": "#/$defs/citation"
-        }
-      },
-      "categories": {
-        "type": "array",
-        "description": "List of categories the drug belongs to.",
-        "items": {
-          "$ref": "#/$defs/category_enum"
-        }
-      }
-    },
-    "required": [
-      "drug_name",
-      "search_url",
-      "chemical_class",
-      "psychoactive_class",
-      "dosages",
-      "duration",
-      "addiction_potential",
-      "interactions",
-      "notes",
-      "subjective_effects",
-      "tolerance",
-      "half_life",
-      "citations",
-      "categories",
-      "duration_curves"
-    ],
-    "additionalProperties": false,
-    "$defs": {
-      "duration_curve_entry": {
-        "type": "object",
-        "properties": {
-          "method": {
-            "type": "string",
-            "description": "Route of administration (e.g., oral, IV, insufflated, smoked)"
+            "additionalProperties": False
           },
-          "duration_curve": {
-            "$ref": "#/$defs/duration_curve_data"
-          }
-        },
-        "required": [
-          "method",
-          "duration_curve"
-        ],
-        "additionalProperties": false
-      },
-      "duration_curve_data": {
-        "type": "object",
-        "properties": {
-          "reference": {
+          "category_enum": {
             "type": "string",
-            "description": "Citation or reference for the duration data"
-          },
-          "units": {
-            "type": "string",
-            "description": "Time units used (e.g., hours, minutes)",
             "enum": [
-              "hours",
-              "minutes",
-              "days"
+              "psychedelic",
+              "gabapentinoid",
+              "antipsychotic",
+              "medical|off-label",
+              "cannabinoid",
+              "cariotoxic",
+              "hepatotoxic",
+              "ototoxic",
+              "neurotoxic",
+              "carcinogenic",
+              "toxic|unspecified",
+              "irreversible-damage",
+              "dissociative",
+              "stimulant",
+              "research-chemical",
+              "empathogen",
+              "habit-forming",
+              "opioid",
+              "depressant",
+              "hallucinogen",
+              "entactogen",
+              "deliriant",
+              "antidepressant",
+              "sedative",
+              "nootropic",
+              "barbiturate",
+              "benzodiazepine",
+              "supplement",
+              "stimulant-sedative",
+              "anorectic",
+              "antiepileptic",
+              "antihistamine"
             ]
-          },
-          "total_duration": {
-            "$ref": "#/$defs/duration_range"
-          },
-          "onset": {
-            "$ref": "#/$defs/duration_phase"
-          },
-          "peak": {
-            "$ref": "#/$defs/duration_phase"
-          },
-          "offset": {
-            "$ref": "#/$defs/duration_phase"
-          },
-          "after_effects": {
-            "$ref": "#/$defs/duration_phase"
           }
-        },
-        "required": [
-          "reference",
-          "units",
-          "total_duration",
-          "onset",
-          "peak",
-          "offset",
-          "after_effects"
-        ],
-        "additionalProperties": false
-      },
-      "duration_range": {
-        "type": "object",
-        "properties": {
-          "min": {
-            "type": "number",
-            "description": "Minimum duration value"
-          },
-          "max": {
-            "type": "number",
-            "description": "Maximum duration value"
-          },
-          "iso": {
-            "type": "array",
-            "description": "ISO 8601 duration format representations",
-            "items": {
-              "type": "string"
-            }
-          },
-          "note": {
-            "type": "string",
-            "description": "Additional notes about the duration"
-          }
-        },
-        "required": [
-          "min",
-          "max",
-          "iso",
-          "note"
-        ],
-        "additionalProperties": false
-      },
-      "duration_phase": {
-        "type": "object",
-        "properties": {
-          "start": {
-            "type": "number",
-            "description": "Start time of this phase"
-          },
-          "end": {
-            "type": "number",
-            "description": "End time of this phase"
-          },
-          "iso_start": {
-            "type": "array",
-            "description": "ISO 8601 duration format for start time",
-            "items": {
-              "type": "string"
-            }
-          },
-          "iso_end": {
-            "type": "array",
-            "description": "ISO 8601 duration format for end time",
-            "items": {
-              "type": "string"
-            }
-          }
-        },
-        "required": [
-          "start",
-          "end",
-          "iso_start",
-          "iso_end"
-        ],
-        "additionalProperties": false
-      },
-      "dosages": {
-        "type": "object",
-        "properties": {
-          "routes_of_administration": {
-            "type": "array",
-            "description": "Dosages information for different routes of administration.",
-            "items": {
-              "$ref": "#/$defs/route_of_administration"
-            }
-          }
-        },
-        "required": [
-          "routes_of_administration"
-        ],
-        "additionalProperties": false
-      },
-      "route_of_administration": {
-        "type": "object",
-        "properties": {
-          "route": {
-            "type": "string",
-            "description": "The route of administration. SINGLE WORD OR ABBREVIATION ONLY (e.g., oral, smoked, IV, insufflated)."
-          },
-          "units": {
-            "type": "string",
-            "description": "Units of measurement (e.g., mg, µg, ml)."
-          },
-          "notes": {
-            "type": "string",
-            "description": "Commentary on the provenance of the information, including any relevant details about the source or context. Explicit mentions of the source are not required, but the information should be verifiable. If the information is mostly derived from user reports, it should **ALWAYS** be noted as such."
-          },
-          "dose_ranges": {
-            "$ref": "#/$defs/dose_ranges"
-          }
-        },
-        "required": [
-          "route",
-          "units",
-          "dose_ranges",
-          "notes"
-        ],
-        "additionalProperties": false
-      },
-      "dose_ranges": {
-        "type": "object",
-        "properties": {
-          "threshold": {
-            "type": "string",
-            "description": "Threshold dose."
-          },
-          "light": {
-            "type": "string",
-            "description": "Light dose."
-          },
-          "common": {
-            "type": "string",
-            "description": "Common dose."
-          },
-          "strong": {
-            "type": "string",
-            "description": "Strong dose."
-          },
-          "heavy": {
-            "type": "string",
-            "description": "Heavy dose."
-          }
-        },
-        "required": [
-          "threshold",
-          "light",
-          "common",
-          "strong",
-          "heavy"
-        ],
-        "additionalProperties": false
-      },
-      "duration": {
-        "type": "object",
-        "properties": {
-          "total_duration": {
-            "type": "string",
-            "description": "Total duration of effects."
-          },
-          "onset": {
-            "type": "string",
-            "description": "Onset time of effects."
-          },
-          "peak": {
-            "type": "string",
-            "description": "Peak time of effects."
-          },
-          "offset": {
-            "type": "string",
-            "description": "Offset time of effects."
-          },
-          "after_effects": {
-            "type": "string",
-            "description": "Duration of after-effects."
-          }
-        },
-        "required": [
-          "total_duration",
-          "onset",
-          "peak",
-          "offset",
-          "after_effects"
-        ],
-        "additionalProperties": false
-      },
-      "interactions": {
-        "type": "object",
-        "properties": {
-          "dangerous": {
-            "type": "array",
-            "description": "Dangerous drug interactions.",
-            "items": {
-              "type": "string"
-            }
-          },
-          "unsafe": {
-            "type": "array",
-            "description": "Unsafe drug interactions.",
-            "items": {
-              "type": "string"
-            }
-          },
-          "caution": {
-            "type": "array",
-            "description": "Interactions that require caution.",
-            "items": {
-              "type": "string"
-            }
-          }
-        },
-        "required": [
-          "dangerous",
-          "unsafe",
-          "caution"
-        ],
-        "additionalProperties": false
-      },
-      "tolerance": {
-        "type": "object",
-        "properties": {
-          "full_tolerance": {
-            "type": "string",
-            "description": "Time to full tolerance."
-          },
-          "half_tolerance": {
-            "type": "string",
-            "description": "Time to half tolerance."
-          },
-          "zero_tolerance": {
-            "type": "string",
-            "description": "Time to zero tolerance."
-          },
-          "cross_tolerances": {
-            "type": "array",
-            "description": "Substances with cross-tolerance.",
-            "items": {
-              "type": "string"
-            }
-          }
-        },
-        "required": [
-          "full_tolerance",
-          "half_tolerance",
-          "zero_tolerance",
-          "cross_tolerances"
-        ],
-        "additionalProperties": false
-      },
-      "citation": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "The name or title of the citation."
-          },
-          "reference": {
-            "type": "string",
-            "description": "The URL or other reference of the citation."
-          }
-        },
-        "required": [
-          "name",
-          "reference"
-        ],
-        "additionalProperties": false
-      },
-      "category_enum": {
-        "type": "string",
-        "enum": [
-          "psychedelic",
-          "gabapentinoid",
-          "antipsychotic",
-          "medical|off-label",
-          "cannabinoid",
-          "cariotoxic",
-          "hepatotoxic",
-          "ototoxic",
-          "neurotoxic",
-          "carcinogenic",
-          "toxic|unspecified",
-          "irreversible-damage",
-          "dissociative",
-          "stimulant",
-          "research-chemical",
-          "empathogen",
-          "habit-forming",
-          "opioid",
-          "depressant",
-          "hallucinogen",
-          "entactogen",
-          "deliriant",
-          "antidepressant",
-          "sedative",
-          "nootropic",
-          "barbiturate",
-          "benzodiazepine",
-          "supplement",
-          "stimulant-sedative",
-          "anorectic",
-          "antiepileptic",
-          "antihistamine"
-        ]
+        }
       }
     }
-  }
-}
